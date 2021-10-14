@@ -1,0 +1,59 @@
+<template>
+  <header class="header wrap">
+    <a href="mailto:contact@pnkfrg.com" title="Contact us" class="hover-me"
+      ><b>Contact</b></a
+    >
+
+    <nuxt-link to="/" title="Link to home">
+      <Logo />
+    </nuxt-link>
+
+    <nuxt-link to="careers" title="Link to careers" class="hover-me"
+      ><b>Careers</b></nuxt-link
+    >
+  </header>
+</template>
+
+<script>
+import Logo from '@/assets/svgs/LogoStack'
+
+export default {
+  components: { Logo }
+}
+</script>
+
+<style lang="scss">
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 666;
+  opacity: 0;
+  transform: translateY(-80px);
+  pointer-events: none;
+
+  a {
+    color: var(--white);
+    font-size: 16px;
+    pointer-events: initial;
+
+    &.nuxt-link-exact-active::after {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (min-width: 961px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    a {
+      font-size: 22px;
+    }
+  }
+}
+</style>

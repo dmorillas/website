@@ -1,0 +1,192 @@
+<template>
+  <footer class="footer wrap">
+    <div class="footer-left">
+      <h1>
+        <nuxt-link to="/" title="Link to home">
+          <Logo />
+        </nuxt-link>
+      </h1>
+
+      <p class="p0">
+        Interested in a career at pnkfrg studios? Send an email telling us a bit
+        about yourself and what you’re looking for to
+
+        <b
+          ><a
+            href="mailto:contact@pnkfrg.com"
+            title="Contact us"
+            class="hover-me"
+            >contact@pnkfrg.com</a
+          ></b
+        >
+      </p>
+    </div>
+
+    <div class="footer-right">
+      <ul class="socials">
+        <li>
+          <a
+            href="https://twitter.com/pnkfrg"
+            target="_blank"
+            rel="noopener"
+            title="Follow us on Twitter!"
+            ><Twitter
+          /></a>
+        </li>
+        <li>
+          <a
+            href="https://www.facebook.com/pnkfrg-studios-101577392069651"
+            target="_blank"
+            rel="noopener"
+            title="Follow us on Twitter!"
+            ><Facebook
+          /></a>
+        </li>
+        <li>
+          <a
+            href="https://instagram.com/pnkfrg"
+            target="_blank"
+            rel="noopener"
+            title="Follow us on Instagram!"
+            ><Instagram />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/company/pnkfrg"
+            target="_blank"
+            rel="noopener"
+            title="Follow us on Linkedin!"
+            ><Linkedin
+          /></a>
+        </li>
+      </ul>
+
+      <ul class="links">
+        <li>
+          <nuxt-link to="imprint" class="hover-me p0"><b>Imprint</b></nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="careers" class="hover-me p0"><b>Careers</b></nuxt-link>
+        </li>
+        <li>
+          <a href="mailto:contact@pnkfrg.com" class="hover-me p0"
+            ><b>Contact</b></a
+          >
+        </li>
+      </ul>
+    </div>
+  </footer>
+</template>
+
+<script>
+import Facebook from '@/assets/svgs/Facebook'
+import Instagram from '@/assets/svgs/Instagram'
+import Linkedin from '@/assets/svgs/Linkedin'
+import Logo from '@/assets/svgs/LogoLine'
+import Twitter from '@/assets/svgs/Twitter'
+
+export default {
+  components: { Facebook, Instagram, Linkedin, Logo, Twitter }
+}
+</script>
+
+<style lang="scss">
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 666;
+
+  &-left {
+    p {
+      margin-top: 20px;
+      max-width: 505px;
+    }
+  }
+
+  &-right {
+    .links {
+      margin-top: 40px;
+      text-align: right;
+
+      li:not(:last-child) {
+        margin-bottom: 3px;
+      }
+    }
+  }
+
+  .socials {
+    display: flex;
+
+    li {
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      a {
+        display: flex;
+        position: relative;
+        top: 0;
+        transition: 0.2s all cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        svg {
+          width: 38px;
+          height: 38px;
+          background: white;
+          border-radius: 100%;
+          transition: 0.2s all cubic-bezier(0.165, 0.84, 0.44, 1);
+
+          path {
+            transition: 0.2s all cubic-bezier(0.165, 0.84, 0.44, 1);
+          }
+        }
+
+        &:hover {
+          top: -2px;
+
+          svg {
+            background: var(--red);
+
+            path {
+              fill: var(--pink);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 960px) {
+    padding-top: 68px;
+    padding-bottom: 68px;
+    flex-direction: column;
+
+    &-left {
+      p {
+        margin-top: 12px;
+      }
+    }
+
+    &-right {
+      margin-top: 32px;
+
+      .links {
+        margin-top: 28px;
+        text-align: left;
+
+        li {
+          display: inline-block;
+          margin-bottom: 0;
+
+          &:not(:last-child) {
+            margin-right: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

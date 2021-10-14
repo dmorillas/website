@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'gllx';
+  src: url('gllxmdm.woff2') format('woff2'), url('gllxmdm.woff') format('woff'),
+    url('gllxmdm.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'gllx';
+  src: url('gllxbld.woff2') format('woff2'), url('gllxbld.woff') format('woff'),
+    url('gllxbld.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+}
