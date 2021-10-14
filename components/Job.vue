@@ -93,6 +93,17 @@ export default {
     height: 0;
     overflow: hidden;
     white-space: pre-wrap;
+
+    ul {
+      margin-top: -16px !important;
+
+      list-style: disc outside;
+
+      li {
+        margin-left: 15px;
+        list-style: disc outside;
+      }
+    }
   }
 
   .cta {
