@@ -36,18 +36,19 @@ export const texts = (data, index, isFirst) => {
   } else {
     lineOne = section.querySelector('.texts-titles.hide-m .texts-line-top')
     lineTwo = section.querySelector('.texts-titles.hide-m .texts-line-bottom')
+    const coef = window.innerWidth > 1220 ? 20 : 10
 
     transX = {
       one: ['-100%', '-20%'],
-      two: ['100%', '20%'],
-      three: ['100%', '-20%']
+      two: ['100%', `${coef}%`],
+      three: ['100%', `-${coef}%`]
     }
 
     if (data.headlineSwapOrder) {
       transX = {
         one: ['100%', '20%'],
-        two: ['-100%', '-20%'],
-        three: ['100%', '20%']
+        two: ['-100%', `-${coef}%`],
+        three: ['100%', `${coef}%`]
       }
     }
   }

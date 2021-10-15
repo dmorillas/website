@@ -64,6 +64,9 @@ export default {
       if (el.resizeTO) clearTimeout(el.resizeTO)
 
       el.resizeTO = setTimeout(() => {
+        if (this.screenW < 1201 && window.innerWidth > 960) {
+          this.key++
+        }
         if (this.screenW < 961 && window.innerWidth > 960) {
           this.key++
         }
@@ -274,6 +277,10 @@ li {
   font-weight: 700;
 
   @media (min-width: 961px) {
+    font-size: 64px;
+  }
+
+  @media (min-width: 1200px) {
     font-size: 85px;
   }
 }
