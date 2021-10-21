@@ -55,6 +55,12 @@ export default {
     window.addEventListener('resize', e => {
       this.checkResize(e)
     })
+
+    const offsetBottom = 20
+    const stuckToBottom = document.querySelector('header')
+    window.addEventListener('scroll', () =>
+      this.reactToSafariOverflowBar(stuckToBottom, offsetBottom)
+    )
   },
 
   methods: {
@@ -83,6 +89,18 @@ export default {
         return 'hero-index'
       } else {
         return mod.sys.contentType.sys.id
+      }
+    },
+
+    safari (element, offsetBottom) {
+      const SAFARI_MOBILE_BOTTOM_MENU_HEIGHT = 44
+
+      console.log('element', element)
+      const { bottom } = element.getBoundingClientRect()
+      if (Math.floor(bottom) > window.innerHeight) {
+        element.style.bottom = offsetBottom + SAFARI_MOBILE_BOTTOM_MENU_HEIGHT
+      } else {
+        element.style.bottom = offsetBottom
       }
     }
   }

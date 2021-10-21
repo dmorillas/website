@@ -93,8 +93,13 @@ export default {
 section[data-type='hero-index'] {
   .section-content {
     @media (max-width: 960px) {
-      padding-top: 580px;
-      padding-bottom: 85px;
+      /* padding-top: 80vh;
+      min-height: 100vh;
+      padding-bottom: 85px; */
+
+      padding-top: calc(100vh - 240px);
+      max-height: -webkit-fill-available;
+      padding-bottom: 120px;
     }
 
     @media (min-width: 961px) {
