@@ -1,6 +1,11 @@
 <template>
   <header class="header wrap">
-    <a href="mailto:contact@pnkfrg.com" title="Contact us" class="hover-me"
+    <a
+      href="mailto:contact@pnkfrg.com"
+      target="_blank"
+      title="Contact us"
+      rel="noopener"
+      class="hover-me"
       ><b>Contact</b></a
     >
 
@@ -8,7 +13,7 @@
       <Logo />
     </nuxt-link>
 
-    <nuxt-link to="careers" title="Link to careers" class="hover-me"
+    <nuxt-link to="/careers" title="Link to careers" class="hover-me"
       ><b>Careers</b></nuxt-link
     >
   </header>

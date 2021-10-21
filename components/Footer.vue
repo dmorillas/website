@@ -64,13 +64,22 @@
 
       <ul class="links">
         <li>
-          <nuxt-link to="imprint" class="hover-me p0"><b>Imprint</b></nuxt-link>
+          <nuxt-link to="/imprint" class="hover-me p0"
+            ><b>Imprint</b></nuxt-link
+          >
         </li>
         <li>
-          <nuxt-link to="careers" class="hover-me p0"><b>Careers</b></nuxt-link>
+          <nuxt-link to="/careers" class="hover-me p0"
+            ><b>Careers</b></nuxt-link
+          >
         </li>
         <li>
-          <a href="mailto:contact@pnkfrg.com" class="hover-me p0"
+          <a
+            href="mailto:contact@pnkfrg.com"
+            target="_blank"
+            title="Contact us"
+            rel="noopener"
+            class="hover-me p0"
             ><b>Contact</b></a
           >
         </li>

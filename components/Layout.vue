@@ -202,12 +202,14 @@ li {
     transition: 0.3s transform cubic-bezier(0.39, 0.575, 0.565, 1);
   }
 
-  &:hover {
-    text-decoration: none;
+  @media (min-width: 961px) {
+    &:hover {
+      text-decoration: none;
 
-    &::after {
-      transform: scaleX(1);
-      transform-origin: bottom right;
+      &::after {
+        transform: scaleX(1);
+        transform-origin: bottom right;
+      }
     }
   }
 }
