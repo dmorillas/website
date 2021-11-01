@@ -83,7 +83,7 @@ export default {
       lang: 'en',
       name: 'pnkfrg studios',
       short_name: 'pnkfrg',
-      description: 'pnkfrg studios create casual games to captivate the world.',
+      description: 'pnkfrg studios',
       theme_color: '#fecdff',
       background_color: '#1126ea',
       start_url: '/'
