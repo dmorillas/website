@@ -59,7 +59,7 @@ export default {
   css: ['@/assets/fonts/fonts.css'],
 
   plugins: [
-    { src: '@/plugins/contentful.js' },
+    { src: '@/plugins/contentful.js', mode: 'client' },
     { src: '@/plugins/parallax.js', mode: 'client' }
   ],
 
@@ -92,7 +92,7 @@ export default {
 
   generate: {
     async routes () {
-      return getPages()
+      return await getPages()
     }
   }
 }

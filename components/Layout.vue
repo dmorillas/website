@@ -16,11 +16,7 @@
           :index="i"
         />
 
-        <Simple
-          v-else-if="modName(mod) === 'text'"
-          :data="mod.fields"
-          :index="i"
-        />
+        <Simple v-if="modName(mod) === 'text'" :data="mod.fields" :index="i" />
 
         <Jobs
           v-else-if="modName(mod) === 'jobs'"
@@ -52,6 +48,7 @@ export default {
     anim.header()
 
     this.screenW = window.innerWidth
+
     window.addEventListener('resize', e => {
       this.checkResize(e)
     })
@@ -79,12 +76,7 @@ export default {
     },
 
     modName (mod, i) {
-      if (
-        (this.$route.name === 'index' ||
-          this.$route.params.slug === 'lp' ||
-          this.$route.params.slug === 'about') &&
-        i === 0
-      ) {
+      if (this.$route.name === 'index' && i === 0) {
         return 'hero-index'
       } else {
         return mod.sys.contentType.sys.id
