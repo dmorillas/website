@@ -15,7 +15,7 @@
 
     <Videos v-if="data.videos" :data="data.videos" />
 
-    <Texts :data="data" :index="index" />
+    <Texts :data="data" :index="index" :contact="data.contactForm" />
 
     <Jobs v-if="data.jobs" :data="data.jobs" />
   </div>
@@ -97,7 +97,7 @@ section[data-type='hero-index'] {
       min-height: 100vh;
       padding-bottom: 85px; */
 
-      padding-top: calc(100vh - 240px);
+      padding-top: 120px;
       max-height: -webkit-fill-available;
       padding-bottom: 120px;
     }

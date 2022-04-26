@@ -163,6 +163,7 @@ export default {
     flex-direction: column;
 
     &-left {
+      width: 100%;
       p {
         margin-top: 12px;
       }

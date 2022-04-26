@@ -136,7 +136,7 @@ section[data-type='hero-index'] {
       min-height: 100vh;
       padding-bottom: 85px; */
 
-      padding-top: calc(100vh - 240px);
+      padding-top: 120px;
       max-height: -webkit-fill-available;
       padding-bottom: 120px;
     }

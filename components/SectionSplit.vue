@@ -109,7 +109,7 @@ section[data-type='hero-index'] {
       min-height: 100vh;
       padding-bottom: 85px; */
 
-      padding-top: calc(100vh - 240px);
+      padding-top: 120px;
       max-height: -webkit-fill-available;
       padding-bottom: 120px;
     }
@@ -153,13 +153,26 @@ section[data-type='text'] {
 .section-split {
   display: flex;
 
-  @media (min-width: 768px) {
+  @media (min-width: 961px) {
     flex-direction: row;
     padding-top: 64px;
     padding-bottom: 64px;
 
     > * {
       width: 50%;
+    }
+  }
+
+  @media (max-width: 960px) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    .split-illu {
+      order: 2;
+      margin-top: 42px;
+    }
+    .texts {
+      order: 1;
     }
   }
 

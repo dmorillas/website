@@ -1,5 +1,5 @@
-<template
-  ><div>
+<template>
+  <div>
     <div class="form-wrap">
       <form
         method="POST"
@@ -96,6 +96,7 @@ export default {
 .form-wrap,
 .form-feed {
   overflow: hidden;
+  pointer-events: initial;
 }
 
 .form-feed {
@@ -105,11 +106,15 @@ export default {
 .form-wrap {
   position: relative;
   z-index: 1;
+  padding-top: 12px;
 
   form {
     margin: 12px 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    @media (min-width: 961px) {
+      flex-direction: row;
+    }
   }
 
   .form-row {
@@ -119,8 +124,9 @@ export default {
     margin-bottom: 8px;
     flex-direction: column;
 
-    @media (min-width: 768px) {
+    @media (min-width: 961px) {
       flex-direction: row;
+      margin-right: 12px;
     }
   }
 
@@ -133,10 +139,9 @@ export default {
     padding: 14px 12px;
     border-radius: 100px;
     min-width: 240px;
-    margin-right: 12px;
 
     color: var(--white);
-    background: var(--blue);
+    background: transparent;
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
@@ -148,9 +153,8 @@ export default {
 
     &:focus {
       border-color: var(--yellow);
-    }
-
-    @media (min-width: 768px) {
+      background-color: var(--yellow);
+      color: var(--blue);
     }
   }
 
