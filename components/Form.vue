@@ -153,8 +153,8 @@ export default {
 
     &:focus {
       border-color: var(--yellow);
-      background-color: var(--yellow);
-      color: var(--blue);
+      /* background-color: var(--yellow); */
+      /* color: var(--blue); */
     }
   }
 
@@ -196,5 +196,32 @@ select.disabled {
 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: rgba(#e6e1d2, 0.3);
+}
+
+[data-theme='black'] {
+  input {
+    border-color: var(--black);
+    color: var(--black);
+  }
+  .cta {
+    /* background: red; */
+  }
+
+  ::placeholder,
+  select.disabled {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(#000, 0.3);
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(#000, 0.3);
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgba(#000, 0.3);
+  }
 }
 </style>

@@ -15,7 +15,7 @@
     <div :class="`texts-body ${textSize}`">
       <div v-if="data.body" v-html="$md.render(data.body)" />
 
-      <Form v-if="contact" />
+      <Form v-if="contact" :data-theme="data.headlineColor.toLowerCase()" />
     </div>
   </div>
 </template>
