@@ -7,11 +7,10 @@
         ref="form"
         name="Early Access"
         data-netlify="true"
-        netlify-honeypot="bot-field"
         action="/"
       >
         <input type="hidden" name="form-name" value="Early Access" />
-        <input type="hidden" name="bot-field" />
+        <!-- <input type="hidden" name="bot-field" /> -->
 
         <div class="form-row">
           <input type="email" name="email" placeholder="Email*" required />
@@ -108,6 +107,8 @@ export default {
 
   form {
     margin: 12px 0;
+    display: flex;
+    flex-direction: row;
   }
 
   .form-row {
@@ -116,8 +117,6 @@ export default {
     gap: 22px;
     margin-bottom: 8px;
     flex-direction: column;
-    border: 1px solid var(--white);
-    border-radius: 100px;
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -130,8 +129,10 @@ export default {
     outline: none;
     border: 2px solid var(--white);
     border-radius: 0px;
-    padding: 12px;
+    padding: 14px 12px;
     border-radius: 100px;
+    min-width: 240px;
+    margin-right: 12px;
 
     color: var(--white);
     background: var(--blue);
@@ -153,6 +154,8 @@ export default {
   }
 
   .cta {
+    padding: 16px;
+    border: none;
     color: var(--blue);
     background: var(--yellow);
     border-color: var(--orange);
@@ -169,7 +172,7 @@ export default {
   }
 
   @media (min-width: 1024px) {
-    max-width: 70%;
+    /* max-width: 70%; */
   }
 }
 

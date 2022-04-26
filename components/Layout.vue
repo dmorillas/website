@@ -227,6 +227,9 @@ li {
 
 .cta,
 .texts-body strong > a {
+  appearance: none;
+  outline: none;
+  cursor: pointer;
   display: inline-block;
   padding: 14.5px 31.6px;
   font-size: 16px;

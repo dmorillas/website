@@ -97,6 +97,8 @@ export default {
   z-index: 666;
 
   &-left {
+    width: 50%;
+
     p {
       margin-top: 20px;
       max-width: 505px;
