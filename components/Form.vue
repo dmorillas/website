@@ -7,10 +7,10 @@
         ref="form"
         name="New test"
         data-netlify="true"
+        netlify-honeypot="bot-field"
         @submit="handleSubmit($event)"
       >
-        <!-- netlify-honeypot="bot-field"
-        <input type="hidden" name="bot-field" /> -->
+        <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="New test" />
 
         <div class="form-row">
