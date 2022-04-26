@@ -1,12 +1,7 @@
 <template>
   <header class="header wrap">
-    <a
-      href="mailto:contact@pnkfrg.com"
-      target="_blank"
-      title="Contact us"
-      rel="noopener"
-      class="hover-me"
-      ><b>Contact</b></a
+    <nuxt-link to="/about" title="Link to about" class="hover-me"
+      ><b>About</b></nuxt-link
     >
 
     <nuxt-link to="/" title="Link to home">

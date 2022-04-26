@@ -64,13 +64,16 @@
 
       <ul class="links">
         <li>
-          <nuxt-link to="/imprint" class="hover-me p0"
-            ><b>Imprint</b></nuxt-link
-          >
+          <nuxt-link to="/about" class="hover-me p0"><b>About</b></nuxt-link>
         </li>
         <li>
           <nuxt-link to="/careers" class="hover-me p0"
             ><b>Careers</b></nuxt-link
+          >
+        </li>
+        <li>
+          <nuxt-link to="/imprint" class="hover-me p0"
+            ><b>Imprint</b></nuxt-link
           >
         </li>
         <li>

@@ -12,7 +12,7 @@ export default {
   },
 
   async asyncData ({ redirect }) {
-    return await getPage('index', redirect)
+    return await getPage('lp', redirect)
   }
 }
 </script>
