@@ -130,6 +130,13 @@ export default {
 }
 
 section[data-type='hero-index'] {
+  > .section-content {
+    overflow: visible;
+    .shapes {
+      z-index: 1;
+    }
+  }
+
   .section-content {
     @media (max-width: 960px) {
       /* padding-top: 80vh;
