@@ -13,8 +13,13 @@
         ><b>Careers</b></nuxt-link
       >
 
-      <nuxt-link to="/contact" title="Link to careers" class="hover-me"
-        ><b>Careers</b></nuxt-link
+      <a
+        href="mailto:contact@pnkfrg.com"
+        target="_blank"
+        title="Say hi 👋"
+        rel="noopener"
+        class="hover-me"
+        ><b>Contact</b></a
       >
     </div>
   </header>

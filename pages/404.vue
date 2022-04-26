@@ -5,11 +5,10 @@
     <section class="ooops wrap section" data-index="0">
       <Shapes v-if="data" :data="data" index="0" />
 
-      <p><b>Ooops</b></p>
+      <!-- <p><b>Ooops</b></p> -->
+      <br />
+      <br />
       <h1>404</h1>
-      <nuxt-link to="/" title="Bring me home!" class="cta"
-        >Back to home</nuxt-link
-      >
     </section>
   </div>
 </template>

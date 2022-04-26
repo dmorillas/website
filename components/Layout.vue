@@ -239,6 +239,7 @@ li {
   border-radius: 94px;
   text-decoration: none !important;
   transition: all 0.2s ease-out;
+  pointer-events: initial;
 
   &:hover {
     background: var(--pink);
