@@ -1,16 +1,22 @@
 <template>
   <div
     class="section-content home-layout"
-    :data-index="index"
     :style="data.background && getBg(data.background)"
-    v-observe-visibility="{
-      callback: visibilityChanged,
-      once: true,
-      intersection: {
-        threshold: index > 0 ? 0.3 : 0
-      }
-    }"
   >
+    <div
+      class="section"
+      :data-index="index"
+      v-observe-visibility="{
+        callback: visibilityChanged,
+        once: true,
+        intersection: {
+          threshold: index > 0 ? 0.3 : 0
+        }
+      }"
+    >
+      <Texts :data="data" />
+    </div>
+
     <section
       v-for="(mod, i) in data.sections"
       class="section"
