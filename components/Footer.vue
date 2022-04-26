@@ -8,18 +8,9 @@
       </h1>
 
       <p class="p0">
-        Interested in a career at pnkfrg studios? Send an email telling us a bit
-        about yourself and what you’re looking for to
-
-        <b
-          ><a
-            href="mailto:contact@pnkfrg.com"
-            title="Contact us"
-            class="hover-me"
-            >contact@pnkfrg.com</a
-          ></b
-        >
+        Get early access to Beta
       </p>
+      <Form />
     </div>
 
     <div class="footer-right">
@@ -60,6 +51,15 @@
             ><Linkedin
           /></a>
         </li>
+        <li>
+          <a
+            href="https://discord.com/pnkfrg"
+            target="_blank"
+            rel="noopener"
+            title="Chat with us on Discord!"
+            ><Discord
+          /></a>
+        </li>
       </ul>
 
       <ul class="links">
@@ -94,9 +94,10 @@ import Instagram from '@/assets/svgs/Instagram'
 import Linkedin from '@/assets/svgs/Linkedin'
 import Logo from '@/assets/svgs/LogoLine'
 import Twitter from '@/assets/svgs/Twitter'
+import Discord from '@/assets/svgs/Discord'
 
 export default {
-  components: { Facebook, Instagram, Linkedin, Logo, Twitter }
+  components: { Facebook, Instagram, Linkedin, Logo, Twitter, Discord }
 }
 </script>
 
@@ -144,7 +145,7 @@ export default {
         svg {
           width: 38px;
           height: 38px;
-          background: white;
+          background: transparent;
           border-radius: 100%;
           transition: 0.2s all cubic-bezier(0.165, 0.84, 0.44, 1);
 
