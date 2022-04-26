@@ -155,17 +155,35 @@ section[data-type='text'] {
 
   @media (min-width: 768px) {
     flex-direction: row;
+    padding-top: 64px;
+    padding-bottom: 64px;
+
     > * {
       width: 50%;
     }
   }
 
-  .split-illu {
-    opacity: 0;
-  }
-
   img {
     width: 100%;
+    /* max-width: 80%; */
+  }
+
+  .split-illu {
+    opacity: 0;
+
+    &--default {
+      img {
+        float: left;
+        padding-left: 20%;
+      }
+    }
+
+    &--switch {
+      img {
+        float: right;
+        padding-right: 20%;
+      }
+    }
   }
 }
 </style>

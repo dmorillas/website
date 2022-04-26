@@ -209,6 +209,91 @@ export const shapes = (data, delay, index, length) => {
   }
 }
 
+export const shapesAlt = (data, delay, index, length) => {
+  const paramsDefault = {
+    rotate: '0,0',
+    translateX: '0, 0',
+    translateY: '0, 0'
+  }
+
+  if (data) {
+    const section = document.querySelector(`.section[data-index="${index}"]`)
+    const left = section.querySelector('.shape-wrap:first-child svg')
+    const right = section.querySelector('.shape-wrap:last-child svg')
+
+    const shape1 =
+      data[0] && data[0].fields.animation
+        ? data[0].fields.animation.fields
+        : paramsDefault
+
+    const shape2 =
+      data[1] && data[1].fields.animation
+        ? data[1].fields.animation.fields
+        : paramsDefault
+
+    const params = {
+      left: shape1,
+      right: shape2
+    }
+
+    if (window.innerWidth < 961) {
+      if (shape1) {
+        if (shape1.mobileRotation) {
+          params.left.rotate = shape1.mobileRotation
+        }
+        if (shape1.mobileTranslateX) {
+          params.left.translateX = shape1.mobileTranslateX
+        }
+        if (shape1.mobileTranslateY) {
+          params.left.translateY = shape1.mobileTranslateY
+        }
+      }
+
+      if (shape2) {
+        if (shape2.mobileRotation) {
+          params.right.rotate = shape2.mobileRotation
+        }
+        if (shape2.mobileTranslateX) {
+          params.right.translateX = shape2.mobileTranslateX
+        }
+        if (shape2.mobileTranslateY) {
+          params.right.translateY = shape2.mobileTranslateY
+        }
+      }
+    }
+
+    anime.timeline().add({
+      targets: left,
+      rotate: [
+        params.left.rotate.split(',')[0] + 'deg',
+        params.left.rotate.split(',')[1] + 'deg'
+      ],
+      translateX: params.left.translateX.split(','),
+      translateY: params.left.translateY.split(','),
+      opacity: [0, 1],
+      duration: 900,
+      easing: cubic2,
+      delay
+    })
+
+    if (length > 1) {
+      anime.timeline().add({
+        targets: right,
+        rotate: [
+          params.right.rotate.split(',')[0] + 'deg',
+          params.right.rotate.split(',')[1] + 'deg'
+        ],
+        translateX: params.right.translateX.split(','),
+        translateY: params.right.translateY.split(','),
+        opacity: [0, 1],
+        duration: 900,
+        easing: cubic2,
+        delay
+      })
+    }
+  }
+}
+
 export const simple = (el, delay) => {
   anime.timeline().add({
     targets: el,

@@ -17,6 +17,21 @@
       <Texts :data="data" />
     </div>
 
+    <div
+      v-observe-visibility="{
+        callback: visibilityChangedAlt,
+        once: true,
+        intersection: {
+          threshold: index > 0 ? 0.3 : 0
+        }
+      }"
+      class="section"
+      data-svg="true"
+      :data-index="index * 12"
+    >
+      <Shapes v-if="data.shapes" :data="data.shapes" :index="index" />
+    </div>
+
     <section
       v-for="(mod, i) in data.sections"
       class="section"
@@ -69,6 +84,23 @@ export default {
 
         if (this.data.videos) {
           anim.videos(this.data, 1000, this.index)
+        }
+      }
+    },
+
+    visibilityChangedAlt (isVisible, entry) {
+      this.isVisible = isVisible
+
+      if (entry.target.getAttribute('data-svg')) {
+        console.log('e', entry.target, entry.target.getAttribute('data-index'))
+
+        if (isVisible) {
+          anim.shapesAlt(
+            this.data.shapes,
+            2000,
+            entry.target.getAttribute('data-index'),
+            2
+          )
         }
       }
     }
@@ -139,6 +171,28 @@ section[data-type='text'] {
 
     svg {
       height: auto;
+    }
+  }
+}
+
+.home-layout {
+  .shapes {
+    .shape-wrap {
+      height: auto;
+
+      &:first-child {
+        top: 20%;
+      }
+
+      &:last-child {
+        top: 70%;
+        left: 80%;
+      }
+
+      svg {
+        /* transition: 0.5s ease-out;
+        opacity: 1; */
+      }
     }
   }
 }
