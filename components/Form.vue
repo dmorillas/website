@@ -8,7 +8,7 @@
         name="early-access"
         data-netlify="true"
       >
-        <input type="hidden" name="form-name" value="early-access" />
+        <input type="hidden" name="early-access" value="early-access" />
         <!-- <input type="hidden" name="bot-field" /> -->
 
         <div class="form-row">
