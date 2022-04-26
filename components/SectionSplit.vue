@@ -12,12 +12,20 @@
     }"
   >
     <template v-if="data.switchOrder">
-      <Illu v-if="data.illustration" :data="data.illustration.fields" />
+      <Illu
+        v-if="data.illustration"
+        :data="data.illustration.fields"
+        class="split-illu split-illu--switch"
+      />
       <Texts :data="data" :index="index" />
     </template>
     <template v-else>
       <Texts :data="data" :index="index" />
-      <Illu v-if="data.illustration" :data="data.illustration.fields" />
+      <Illu
+        v-if="data.illustration"
+        :data="data.illustration.fields"
+        class="split-illu split-illu--default"
+      />
     </template>
   </div>
 </template>
@@ -52,7 +60,6 @@ export default {
     },
 
     visibilityChanged (isVisible, entry) {
-      console.log('asdasd', isVisible)
       const i = this.index
       const isFirst = i === 0
 
@@ -60,7 +67,10 @@ export default {
 
       if (isVisible) {
         anim.texts(this.data, i, isFirst)
-        anim.shapes(this.data.shapes, isFirst ? 1500 : 400, i, 2)
+
+        anim.illus(entry.target.querySelector('.split-illu--default'), false)
+        anim.illus(entry.target.querySelector('.split-illu--switch'), true)
+        // anim.shapes(this.data.shapes, isFirst ? 1500 : 400, i, 2)
 
         if (this.data.videos) {
           anim.videos(this.data, 1000, this.index)
@@ -142,11 +152,16 @@ section[data-type='text'] {
 <style lang="scss">
 .section-split {
   display: flex;
+
   @media (min-width: 768px) {
     flex-direction: row;
     > * {
       width: 50%;
     }
+  }
+
+  .split-illu {
+    opacity: 0;
   }
 
   img {

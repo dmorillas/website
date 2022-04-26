@@ -33,11 +33,7 @@ import BigShapeU from '@/assets/svgs/BigShapeU'
 export default {
   props: ['data', 'index'],
 
-  components: { ShapeL, ShapeU, BigShapeU },
-
-  mounted () {
-    console.log(this.index)
-  }
+  components: { ShapeL, ShapeU, BigShapeU }
 }
 </script>
 

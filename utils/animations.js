@@ -18,8 +18,6 @@ export const header = () => {
 export const texts = (data, index, isFirst) => {
   let lineOne, lineTwo, lineThree, transX
 
-  console.log('i', data, index)
-
   const section = document.querySelector(`.section[data-index="${index}"]`)
   const body = section.querySelector('.texts-body')
   const hasNextChild = section.querySelector('.texts').nextElementSibling
@@ -220,5 +218,19 @@ export const simple = (el, delay) => {
     duration: 500,
     easing: cubic2,
     delay
+  })
+}
+
+export const illus = (el, reverse) => {
+  anime.timeline().add({
+    targets: el,
+    rotate: [reverse ? '-20deg' : '20deg', 0],
+    transformOrigin: reverse ? 'bottom right' : 'bottom left',
+    translateX: [reverse ? '-100%' : '100%', 0],
+    translateZ: 0,
+    opacity: [0, 1],
+    duration: 700,
+    easing: cubic2,
+    delay: 500
   })
 }

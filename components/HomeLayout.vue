@@ -54,7 +54,6 @@ export default {
     visibilityChanged (isVisible, entry) {
       const i = this.index
       const isFirst = i === 0
-      console.log('qwe', i)
 
       this.isVisible = isVisible
 
