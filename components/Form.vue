@@ -5,13 +5,12 @@
         method="POST"
         id="form"
         ref="form"
-        name="contact"
-        action="/contact"
+        name="Early Access"
         data-netlify="true"
         netlify-honeypot="bot-field"
         @submit="handleSubmit($event)"
       >
-        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="form-name" value="Early Access" />
         <input type="hidden" name="bot-field" />
 
         <div class="form-row">
@@ -37,8 +36,6 @@ export default {
     }
   },
 
-  mounted () {},
-
   methods: {
     checkSelect () {
       const select = this.$refs.select
@@ -59,11 +56,14 @@ export default {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString()
       })
-        .then(() => {
-          app.sent = true
-          setTimeout(() => {
-            app.showFeed()
-          }, 500)
+        .then(res => {
+          console.log('res', res)
+          if (res.status === 200) {
+            app.sent = true
+            setTimeout(() => {
+              app.showFeed()
+            }, 500)
+          }
         })
         .catch(error => {
           console.error('Error:', error)
