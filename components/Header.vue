@@ -40,10 +40,6 @@
         ><b>About</b></nuxt-link
       >
 
-      <nuxt-link to="/experience" title="Link to experience" class="hover-me"
-        ><b>Experience</b></nuxt-link
-      >
-
       <nuxt-link to="/careers" title="Link to careers" class="hover-me"
         ><b>Careers</b></nuxt-link
       >
