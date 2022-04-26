@@ -49,6 +49,11 @@
           <nuxt-link to="/about" class="hover-me p0"><b>About</b></nuxt-link>
         </li>
         <li>
+          <nuxt-link to="/experience" class="hover-me p0"
+            ><b>Experience</b></nuxt-link
+          >
+        </li>
+        <li>
           <nuxt-link to="/careers" class="hover-me p0"
             ><b>Careers</b></nuxt-link
           >
