@@ -49,8 +49,14 @@ export default {
   pointer-events: none;
 
   div {
-    a {
-      margin-left: 12px;
+    &:not(:first-child) {
+      a {
+        margin-left: 12px;
+
+        @media (min-width: 961px) {
+          margin-left: 24px;
+        }
+      }
     }
   }
 

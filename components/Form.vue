@@ -57,7 +57,6 @@ export default {
         body: new URLSearchParams(formData).toString()
       })
         .then(res => {
-          console.log('res', res)
           if (res.status === 200) {
             app.sent = true
             setTimeout(() => {
@@ -184,18 +183,18 @@ export default {
 ::placeholder,
 select.disabled {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: rgba(#e6e1d2, 0.3);
+  color: rgba(#fff, 0.5);
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: rgba(#e6e1d2, 0.3);
+  color: rgba(#fff, 0.5);
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: rgba(#e6e1d2, 0.3);
+  color: rgba(#fff, 0.5);
 }
 
 [data-theme='black'] {

@@ -92,8 +92,6 @@ export default {
       this.isVisible = isVisible
 
       if (entry.target.getAttribute('data-svg')) {
-        console.log('e', entry.target, entry.target.getAttribute('data-index'))
-
         if (isVisible) {
           anim.shapesAlt(
             this.data.shapes,
@@ -183,6 +181,11 @@ section[data-type='text'] {
 }
 
 .home-layout {
+  &.section-content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .shapes {
     .shape-wrap {
       height: auto;

@@ -60,6 +60,7 @@ export default {
 
 <style lang="scss">
 .texts {
+  position: relative;
   text-align: center;
 
   display: flex;
