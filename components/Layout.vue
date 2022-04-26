@@ -1,5 +1,5 @@
 <template>
-  <div :data-theme="theme">
+  <div :data-theme="theme" :data-slug="$route.params.slug || $route.name">
     <Header />
 
     <main class="main" :key="key">

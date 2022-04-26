@@ -98,6 +98,7 @@ export default {
   padding-bottom: 80px;
   position: relative;
   z-index: 666;
+  background: var(--blue);
 
   &-left {
     width: 60%;

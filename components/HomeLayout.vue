@@ -127,9 +127,19 @@ export default {
   }
 }
 
+[data-slug='index'] {
+  section[data-type='hero-index'] {
+    > .section-content {
+      overflow: visible;
+      .shapes {
+        z-index: 1;
+      }
+    }
+  }
+}
+
 section[data-type='hero-index'] {
   > .section-content {
-    overflow: visible;
     .shapes {
       z-index: 1;
     }
