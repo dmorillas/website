@@ -34,7 +34,7 @@
 
     <section
       v-for="(mod, i) in data.sections"
-      class="section"
+      class="section wrap-split"
       :data-index="i + 1 * 99"
       :key="i"
     >
@@ -192,13 +192,30 @@ section[data-type='text'] {
       }
 
       &:last-child {
-        top: 70%;
+        top: 46%;
         left: 80%;
       }
 
       svg {
         /* transition: 0.5s ease-out;
         opacity: 1; */
+      }
+    }
+  }
+}
+
+.wrap-split {
+  &:nth-child(even) {
+    .texts-titles-wrap {
+      *:last-child {
+        color: var(--red);
+      }
+    }
+  }
+  &:nth-child(odd) {
+    .texts-titles-wrap {
+      *:last-child {
+        color: var(--blue);
       }
     }
   }

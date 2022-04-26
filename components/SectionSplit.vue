@@ -158,6 +158,10 @@ section[data-type='text'] {
     padding-top: 64px;
     padding-bottom: 64px;
 
+    .texts {
+      padding: 0 5%;
+    }
+
     > * {
       width: 50%;
     }
@@ -183,7 +187,6 @@ section[data-type='text'] {
 
   .split-illu {
     opacity: 0;
-
     &--default {
       img {
         float: left;
