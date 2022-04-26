@@ -5,11 +5,13 @@
         method="POST"
         id="form"
         ref="form"
-        name="early-access"
+        name="early"
         data-netlify="true"
+        @submit="handleSubmit($event)"
       >
-        <input type="hidden" name="early-access" value="early-access" />
-        <!-- <input type="hidden" name="bot-field" /> -->
+        <!-- netlify-honeypot="bot-field"
+        <input type="hidden" name="bot-field" /> -->
+        <input type="hidden" name="form-name" value="early" />
 
         <div class="form-row">
           <input type="email" name="email" placeholder="Email*" required />
