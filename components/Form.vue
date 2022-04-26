@@ -208,6 +208,7 @@ select.disabled {
   .cta {
     background: var(--blue);
     color: var(--white);
+
     &:hover {
       color: var(--yellow);
     }
