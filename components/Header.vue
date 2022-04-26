@@ -1,16 +1,22 @@
 <template>
   <header class="header wrap">
-    <nuxt-link to="/about" title="Link to about" class="hover-me"
-      ><b>About</b></nuxt-link
-    >
-
     <nuxt-link to="/" title="Link to home">
       <Logo />
     </nuxt-link>
 
-    <nuxt-link to="/careers" title="Link to careers" class="hover-me"
-      ><b>Careers</b></nuxt-link
-    >
+    <div>
+      <nuxt-link to="/about" title="Link to about" class="hover-me"
+        ><b>About</b></nuxt-link
+      >
+
+      <nuxt-link to="/careers" title="Link to careers" class="hover-me"
+        ><b>Careers</b></nuxt-link
+      >
+
+      <nuxt-link to="/contact" title="Link to careers" class="hover-me"
+        ><b>Careers</b></nuxt-link
+      >
+    </div>
   </header>
 </template>
 
@@ -36,6 +42,12 @@ export default {
   opacity: 0;
   transform: translateY(-80px);
   pointer-events: none;
+
+  div {
+    a {
+      margin-left: 12px;
+    }
+  }
 
   a {
     color: var(--white);

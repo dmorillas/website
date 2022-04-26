@@ -26,34 +26,16 @@
         </li>
         <li>
           <a
-            href="https://www.facebook.com/pnkfrg-studios-101577392069651"
+            href="https://medium.com/@pnkfrg  "
             target="_blank"
             rel="noopener"
-            title="Follow us on Twitter!"
-            ><Facebook
+            title="Follow us on Medium"
+            ><Medium
           /></a>
         </li>
         <li>
           <a
-            href="https://instagram.com/pnkfrg"
-            target="_blank"
-            rel="noopener"
-            title="Follow us on Instagram!"
-            ><Instagram />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/company/pnkfrg"
-            target="_blank"
-            rel="noopener"
-            title="Follow us on Linkedin!"
-            ><Linkedin
-          /></a>
-        </li>
-        <li>
-          <a
-            href="https://discord.com/pnkfrg"
+            href="https://discord.gg/ShE5QAGvCc"
             target="_blank"
             rel="noopener"
             title="Chat with us on Discord!"
@@ -98,9 +80,10 @@ import Linkedin from '@/assets/svgs/Linkedin'
 import Logo from '@/assets/svgs/LogoLine'
 import Twitter from '@/assets/svgs/Twitter'
 import Discord from '@/assets/svgs/Discord'
+import Medium from '@/assets/svgs/Medium'
 
 export default {
-  components: { Facebook, Instagram, Linkedin, Logo, Twitter, Discord }
+  components: { Facebook, Instagram, Linkedin, Logo, Twitter, Discord, Medium }
 }
 </script>
 

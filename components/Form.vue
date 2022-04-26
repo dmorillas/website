@@ -8,7 +8,7 @@
         name="Early Access"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        @submit="handleSubmit($event)"
+        action="/"
       >
         <input type="hidden" name="form-name" value="Early Access" />
         <input type="hidden" name="bot-field" />
