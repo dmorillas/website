@@ -102,7 +102,7 @@ export default {
   z-index: 666;
 
   &-left {
-    width: 50%;
+    width: 60%;
 
     p {
       margin-top: 20px;

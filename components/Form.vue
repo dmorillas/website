@@ -132,7 +132,11 @@ export default {
     border-radius: 0px;
     padding: 14px 12px;
     border-radius: 100px;
-    min-width: 240px;
+    min-width: 100%;
+
+    @media (min-width: 961px) {
+      min-width: 300px;
+    }
 
     color: var(--white);
     background: transparent;
@@ -161,6 +165,10 @@ export default {
 
     &::before {
       background: var(--orange);
+    }
+
+    @media (max-width: 959px) {
+      width: 100%;
     }
 
     @media (hover: hover) {
