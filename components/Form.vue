@@ -206,7 +206,11 @@ select.disabled {
     color: var(--black);
   }
   .cta {
-    /* background: red; */
+    background: var(--blue);
+    color: var(--white);
+    &:hover {
+      color: var(--yellow);
+    }
   }
 
   ::placeholder,
