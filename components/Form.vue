@@ -1,9 +1,8 @@
 <template>
-  <div>
-    <div class="form-wrap">
+  <div id="form">
+    <div class="form-wrap" ref="wrap">
       <form
         method="POST"
-        id="form"
         ref="form"
         name="Early Access"
         data-netlify="true"
@@ -17,13 +16,13 @@
           <input type="email" name="email" placeholder="Email*" required />
         </div>
         <div>
-          <button type="submit" class="cta cta-sumbit">get early access</button>
+          <button type="submit" class="cta cta-sumbit">{{ sendBtn }}</button>
         </div>
       </form>
     </div>
 
-    <div class="form-feed">
-      <h2>Thanks, we'll reach out!</h2>
+    <div class="form-feed" ref="feed">
+      <h4>📫 Sent, stay tuned!</h4>
     </div>
   </div>
 </template>
@@ -32,6 +31,7 @@
 export default {
   data () {
     return {
+      sendBtn: 'get early access',
       sent: null
     }
   },
@@ -51,6 +51,8 @@ export default {
       const myForm = app.$refs.form
       const formData = new FormData(myForm)
 
+      app.sendBtn = '...sending'
+
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -65,33 +67,27 @@ export default {
           }
         })
         .catch(error => {
+          app.sendBtn = 'Error!'
           console.error('Error:', error)
         })
     },
 
     showFeed () {
-      const main = document.querySelector('.form-wrap')
-      const feed = document.querySelector('.form-feed')
+      const main = this.$refs.wrap
+      const feed = this.$refs.feed
 
       main.remove()
       feed.style.height = 'auto'
-      // this.$gsap.to(main, 0.4, {
-      //   height: 0,
-      //   ease: 'Power1.easeInOut'
-      // })
-
-      // this.$gsap
-      //   .to(feed, 0.4, {
-      //     height: feed.scrollHeight,
-      //     ease: 'Power1.easeInOut'
-      //   })
-      //   .delay(0.5)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+#form {
+  margin-top: 12px;
+}
+
 .form-wrap,
 .form-feed {
   overflow: hidden;
@@ -105,7 +101,6 @@ export default {
 .form-wrap {
   position: relative;
   z-index: 1;
-  padding-top: 12px;
 
   form {
     margin: 12px 0;
