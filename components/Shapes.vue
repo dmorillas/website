@@ -10,14 +10,14 @@
 
       <ShapeU
         v-if="shape.fields.Type === 'U'"
-        :index="index + 99 + i"
+        :index="index + 999 + i"
         :color="shape.fields.color.toLowerCase()"
         :anim="shape.fields.animation ? shape.fields.animation.fields : null"
       />
 
       <BigShapeU
         v-if="shape.fields.Type === 'U - Big'"
-        :index="index + 99 + i"
+        :index="index + 9999 + i"
         :color="shape.fields.color.toLowerCase()"
         :anim="shape.fields.animation ? shape.fields.animation.fields : null"
       />
@@ -33,7 +33,11 @@ import BigShapeU from '@/assets/svgs/BigShapeU'
 export default {
   props: ['data', 'index'],
 
-  components: { ShapeL, ShapeU, BigShapeU }
+  components: { ShapeL, ShapeU, BigShapeU },
+
+  mounted () {
+    console.log(this.index)
+  }
 }
 </script>
 

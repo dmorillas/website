@@ -14,14 +14,27 @@
           v-if="modName(mod) === 'section'"
           :data="mod.fields"
           :index="i"
+          :uuid="mod.sys.id"
         />
 
-        <Simple v-if="modName(mod) === 'text'" :data="mod.fields" :index="i" />
+        <HomeLayout
+          v-if="modName(mod) === 'homeLayout'"
+          :data="mod.fields"
+          :index="i * 9897"
+        />
+
+        <Simple
+          v-if="modName(mod) === 'text'"
+          :data="mod.fields"
+          :index="i"
+          :uuid="mod.sys.id"
+        />
 
         <Jobs
           v-else-if="modName(mod) === 'jobs'"
           :data="mod.fields"
           :index="i"
+          :uuid="mod.sys.id"
         />
       </section>
     </main>
@@ -76,7 +89,7 @@ export default {
     },
 
     modName (mod, i) {
-      if (this.$route.name === 'index' && i === 0) {
+      if (i === 0) {
         return 'hero-index'
       } else {
         return mod.sys.contentType.sys.id
@@ -92,6 +105,7 @@ export default {
   --blue: #1126ea;
   --green: #4af3a1;
   --pink: #fecdff;
+  --pink-light: #f9f2fa;
   --red: #ff2750;
   --white: #f7f7f7;
   --yellow: #ffeb33;

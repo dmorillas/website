@@ -1,6 +1,6 @@
 <template>
   <div
-    class="section-content"
+    class="section-content home-layout"
     :data-index="index"
     :style="data.background && getBg(data.background)"
     v-observe-visibility="{
@@ -11,13 +11,14 @@
       }
     }"
   >
-    <Shapes v-if="data.shapes" :data="data.shapes" :index="uuid" />
-
-    <Videos v-if="data.videos" :data="data.videos" />
-
-    <Texts :data="data" :index="index" />
-
-    <Jobs v-if="data.jobs" :data="data.jobs" />
+    <section
+      v-for="(mod, i) in data.sections"
+      class="section"
+      :data-index="i + 1 * 99"
+      :key="i"
+    >
+      <SectionSplit :data="mod.fields" :index="i + 1 * 999" />
+    </section>
   </div>
 </template>
 
@@ -29,7 +30,7 @@ import * as anim from '@/utils/animations'
 Vue.use(VueObserveVisibility)
 
 export default {
-  props: ['data', 'index', 'uuid'],
+  props: ['data', 'index'],
 
   data () {
     return {
@@ -53,6 +54,7 @@ export default {
     visibilityChanged (isVisible, entry) {
       const i = this.index
       const isFirst = i === 0
+      console.log('qwe', i)
 
       this.isVisible = isVisible
 

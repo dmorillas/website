@@ -18,6 +18,8 @@ export const header = () => {
 export const texts = (data, index, isFirst) => {
   let lineOne, lineTwo, lineThree, transX
 
+  console.log('i', data, index)
+
   const section = document.querySelector(`.section[data-index="${index}"]`)
   const body = section.querySelector('.texts-body')
   const hasNextChild = section.querySelector('.texts').nextElementSibling

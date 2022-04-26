@@ -1,6 +1,6 @@
 <template>
   <div
-    class="section-content"
+    class="section section-content section-split"
     :data-index="index"
     :style="data.background && getBg(data.background)"
     v-observe-visibility="{
@@ -11,13 +11,14 @@
       }
     }"
   >
-    <Shapes v-if="data.shapes" :data="data.shapes" :index="uuid" />
-
-    <Videos v-if="data.videos" :data="data.videos" />
-
-    <Texts :data="data" :index="index" />
-
-    <Jobs v-if="data.jobs" :data="data.jobs" />
+    <template v-if="data.switchOrder">
+      <Illu v-if="data.illustration" :data="data.illustration.fields" />
+      <Texts :data="data" :index="index" />
+    </template>
+    <template v-else>
+      <Texts :data="data" :index="index" />
+      <Illu v-if="data.illustration" :data="data.illustration.fields" />
+    </template>
   </div>
 </template>
 
@@ -29,7 +30,7 @@ import * as anim from '@/utils/animations'
 Vue.use(VueObserveVisibility)
 
 export default {
-  props: ['data', 'index', 'uuid'],
+  props: ['data', 'index'],
 
   data () {
     return {
@@ -51,6 +52,7 @@ export default {
     },
 
     visibilityChanged (isVisible, entry) {
+      console.log('asdasd', isVisible)
       const i = this.index
       const isFirst = i === 0
 
@@ -133,6 +135,22 @@ section[data-type='text'] {
     svg {
       height: auto;
     }
+  }
+}
+</style>
+
+<style lang="scss">
+.section-split {
+  display: flex;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    > * {
+      width: 50%;
+    }
+  }
+
+  img {
+    width: 100%;
   }
 }
 </style>
