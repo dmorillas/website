@@ -5,11 +5,10 @@
         method="POST"
         id="form"
         ref="form"
-        name="Early Access"
+        name="early-access"
         data-netlify="true"
-        action="/"
       >
-        <input type="hidden" name="form-name" value="Early Access" />
+        <input type="hidden" name="form-name" value="early-access" />
         <!-- <input type="hidden" name="bot-field" /> -->
 
         <div class="form-row">
