@@ -4,7 +4,38 @@
       <Logo />
     </nuxt-link>
 
-    <div>
+    <div class="burger" v-bind:class="{ opened: menuOpened }" @click="menu">
+      <p class="">
+        <svg
+          width="30"
+          height="24"
+          viewBox="0 0 30 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1H29"
+            stroke="#030726"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M1 12H29"
+            stroke="#030726"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M1 23H29"
+            stroke="#030726"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </p>
+    </div>
+
+    <nav>
       <nuxt-link to="/about" title="Link to about" class="hover-me"
         ><b>About</b></nuxt-link
       >
@@ -21,7 +52,7 @@
         class="hover-me"
         ><b>Contact</b></a
       >
-    </div>
+    </nav>
   </header>
 </template>
 
@@ -29,7 +60,20 @@
 import Logo from '@/assets/svgs/LogoStack'
 
 export default {
-  components: { Logo }
+  components: { Logo },
+  computed: {
+    menuOpened () {
+      return this.$store.state.menu.opened
+    }
+  },
+  methods: {
+    menu () {
+      this.$store.commit('menu')
+      const transX = this.menuOpened ? 'translateX(100%)' : 'translateX(0)'
+
+      document.querySelector('nav').style.transform = transX
+    }
+  }
 }
 </script>
 
@@ -48,11 +92,9 @@ export default {
   transform: translateY(-80px);
   pointer-events: none;
 
-  div {
+  nav {
     &:not(:first-child) {
       a {
-        margin-left: 12px;
-
         @media (min-width: 961px) {
           margin-left: 24px;
         }
@@ -76,6 +118,42 @@ export default {
 
     a {
       font-size: 22px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .burger {
+      display: none;
+    }
+  }
+
+  @media (max-width: 959px) {
+    .burger {
+      position: relative;
+      z-index: 9999;
+      pointer-events: initial;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+      padding-top: 120px;
+      padding-left: 5%;
+      transform: translate(0, 200%);
+      background: var(--pink);
+      transition: 0.5s ease-in-out;
+
+      display: flex;
+      flex-direction: column;
+
+      a {
+        font-size: 26px;
+        margin-bottom: 24px;
+      }
     }
   }
 }
