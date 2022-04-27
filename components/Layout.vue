@@ -89,7 +89,8 @@ export default {
     },
 
     modName (mod, i) {
-      if (i === 0) {
+      const slug = this.$route.params.slug || null
+      if (i === 0 && slug != 'imprint') {
         return 'hero-index'
       } else {
         return mod.sys.contentType.sys.id

@@ -83,7 +83,6 @@ export default {
 
     hashNav (e) {
       e.preventDefault()
-      console.log('qwe', this.$route)
       if (this.$route.name === 'index') {
         window.scrollTo({
           top: document.getElementById('experience').offsetTop - 80,
