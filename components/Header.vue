@@ -36,6 +36,13 @@
     </div>
 
     <nav>
+      <nuxt-link
+        to="/#experience"
+        title="Link to experience"
+        class="hover-me hide-m"
+        ><b @click="hashNav($event)">Experience</b></nuxt-link
+      >
+
       <nuxt-link to="/about" title="Link to about" class="hover-me"
         ><b>About</b></nuxt-link
       >
@@ -69,9 +76,24 @@ export default {
   methods: {
     menu () {
       this.$store.commit('menu')
-      const transX = this.menuOpened ? 'translateX(100%)' : 'translateX(0)'
+      const _w = this.menuOpened ? '100%' : '0'
 
-      document.querySelector('nav').style.transform = transX
+      document.querySelector('nav').style.width = _w
+    },
+
+    hashNav (e) {
+      e.preventDefault()
+      console.log('qwe', this.$route)
+      if (this.$route.name === 'index') {
+        window.scrollTo({
+          top: document.getElementById('experience').offsetTop - 80,
+          behavior: 'smooth'
+        })
+      } else {
+        this.$router.push({
+          path: '/#experience'
+        })
+      }
     }
   }
 }
@@ -128,6 +150,8 @@ export default {
   }
 
   @media (max-width: 959px) {
+    /* overflow: hidden; */
+
     .burger {
       position: relative;
       z-index: 9999;
@@ -137,21 +161,22 @@ export default {
     nav {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100%;
+      right: 0;
+      width: 0%;
       height: 100vh;
       z-index: -1;
       padding-top: 120px;
-      padding-left: 5%;
-      transform: translate(0, 200%);
+      /* transform: translate(100%, 0); */
+      overflow: hidden;
       background: var(--pink);
-      transition: 0.5s ease-in-out;
+      transition: 0.27s ease-in-out;
 
       display: flex;
       flex-direction: column;
 
       a {
         font-size: 26px;
+        padding-left: 5%;
         margin-bottom: 24px;
       }
     }

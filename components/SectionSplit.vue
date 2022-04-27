@@ -150,13 +150,19 @@ section[data-type='text'] {
 </style>
 
 <style lang="scss">
+.wrap-split {
+  &:not(:last-child) {
+  }
+}
+
 .section-split {
   display: flex;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: -64px;
 
   @media (min-width: 961px) {
     flex-direction: row;
-    padding-top: 64px;
-    padding-bottom: 64px;
 
     .texts {
       padding: 0 5%;

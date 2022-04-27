@@ -1,5 +1,6 @@
 <template>
   <div
+    id="experience"
     class="section-content home-layout"
     :style="data.background && getBg(data.background)"
   >
@@ -107,6 +108,18 @@ export default {
 </script>
 
 <style lang="scss">
+#experience {
+  [data-svg] {
+    + * {
+      margin-top: 164px;
+
+      @media (max-width: 960px) {
+        margin-top: 96px;
+      }
+    }
+  }
+}
+
 .section-content {
   position: relative;
   overflow: hidden;
