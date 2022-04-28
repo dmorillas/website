@@ -15,7 +15,8 @@
       <Illu
         v-if="data.illustration"
         :data="data.illustration.fields"
-        class="split-illu split-illu--switch"
+        class="split-illu split-illu--switch parallax-layer"
+        :data-parallax-deep="(index / 100) * -250"
       />
       <Texts :data="data" :index="index" />
     </template>
@@ -24,7 +25,8 @@
       <Illu
         v-if="data.illustration"
         :data="data.illustration.fields"
-        class="split-illu split-illu--default"
+        class="split-illu split-illu--default parallax-layer"
+        :data-parallax-deep="(index / 100) * 250"
       />
     </template>
   </div>
