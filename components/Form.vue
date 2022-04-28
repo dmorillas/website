@@ -145,12 +145,12 @@ export default {
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-      -webkit-box-shadow: 0 0 0 30px var(--blue) inset !important;
-      -webkit-text-fill-color: var(--white) !important;
+      -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.01) inset !important;
+      -webkit-text-fill-color: var(--blue) !important;
     }
 
     &:focus {
-      border-color: var(--yellow);
+      border-color: var(--blue);
       /* background-color: var(--yellow); */
       /* color: var(--blue); */
     }

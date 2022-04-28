@@ -120,6 +120,14 @@ export default {
     }
   }
 
+  .form-wrap {
+    input {
+      &:focus {
+        border-color: var(--white) !important;
+      }
+    }
+  }
+
   .socials {
     display: flex;
 
