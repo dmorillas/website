@@ -44,7 +44,7 @@ export const texts = (data, index, isFirst) => {
       three: ['100%', `-${coef}%`]
     }
 
-    if (data.headlineSwapOrder) {
+    if (data.headlineSwapOrder === 'Yes') {
       transX = {
         one: ['100%', '20%'],
         two: ['-100%', `-${coef}%`],

@@ -125,7 +125,6 @@ export default {
   }
 
   input {
-    font-family: 'gllx', Helvetica, Arial, sans-serif;
     -webkit-appearance: none;
     width: 100%;
     outline: none;

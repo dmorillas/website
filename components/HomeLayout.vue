@@ -111,31 +111,11 @@ export default {
 #experience {
   [data-svg] {
     + * {
-      margin-top: 164px;
+      margin-top: 82px;
 
       @media (max-width: 960px) {
         margin-top: 96px;
       }
-    }
-  }
-}
-
-.section-content {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 194px;
-  padding-bottom: 194px;
-
-  .jobs {
-    margin-bottom: calc(-194px + 104px);
-  }
-
-  .jobs {
-    @media (max-width: 960px) {
-      margin-bottom: calc(-194px + 66px);
     }
   }
 }
@@ -147,58 +127,6 @@ export default {
       .shapes {
         z-index: 1;
       }
-    }
-  }
-}
-
-section[data-type='hero-index'] {
-  > .section-content {
-    .shapes {
-      z-index: 1;
-    }
-  }
-
-  .section-content {
-    @media (max-width: 960px) {
-      /* padding-top: 80vh;
-      min-height: 100vh;
-      padding-bottom: 85px; */
-
-      padding-top: 120px;
-      max-height: -webkit-fill-available;
-      padding-bottom: 120px;
-    }
-
-    @media (min-width: 961px) {
-      padding-top: 302px;
-      padding-bottom: 250px;
-
-      .h1 {
-        line-height: 0.9;
-      }
-
-      .h2 {
-        line-height: 1.12;
-      }
-    }
-  }
-}
-
-section[data-type='text'] {
-  position: relative;
-
-  .shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-
-    .shape-wrap {
-      left: 0;
-    }
-
-    svg {
-      height: auto;
     }
   }
 }

@@ -136,6 +136,13 @@ main {
   overflow: hidden;
 }
 
+input,
+select,
+textarea,
+button {
+  font-family: 'gllx', Helvetica, Arial, sans-serif;
+}
+
 @keyframes body {
   to {
     opacity: 1;
@@ -337,6 +344,80 @@ li {
 
   @media (min-width: 961px) {
     font-size: 25px;
+  }
+}
+</style>
+
+<style lang="scss">
+.section-content {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 194px;
+  padding-bottom: 194px;
+
+  .jobs {
+    margin-bottom: calc(-194px + 104px);
+  }
+
+  .jobs {
+    @media (max-width: 960px) {
+      margin-bottom: calc(-194px + 66px);
+    }
+  }
+}
+
+section[data-type='hero-index'] {
+  > .section-content {
+    .shapes {
+      z-index: 1;
+    }
+  }
+
+  .section-content {
+    @media (max-width: 960px) {
+      /* padding-top: 80vh;
+      min-height: 100vh;
+      padding-bottom: 85px; */
+
+      padding-top: 120px;
+      max-height: -webkit-fill-available;
+      padding-bottom: 120px;
+    }
+
+    @media (min-width: 961px) {
+      padding-top: 220px;
+      padding-bottom: 220px;
+
+      .h1 {
+        line-height: 0.9;
+      }
+
+      .h2 {
+        line-height: 1.12;
+      }
+    }
+  }
+}
+
+section[data-type='text'] {
+  position: relative;
+
+  .shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    .shape-wrap {
+      left: 0;
+    }
+
+    svg {
+      height: auto;
+    }
   }
 }
 </style>
