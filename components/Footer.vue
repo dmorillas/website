@@ -62,6 +62,14 @@
           >
         </li>
         <li>
+          <nuxt-link to="/privacy-policy" class="hover-me p0"
+            ><b>Privacy policy</b></nuxt-link
+          >
+        </li>
+        <li>
+          <nuxt-link to="/terms" class="hover-me p0"><b>T&amp;Cs</b></nuxt-link>
+        </li>
+        <li>
           <a
             href="mailto:contact@pnkfrg.com"
             target="_blank"
