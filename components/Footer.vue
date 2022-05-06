@@ -14,8 +14,6 @@
     </div>
 
     <div class="footer-right">
-      <h4><b>Join our community</b></h4>
-      <br />
       <ul class="socials">
         <li>
           <a
@@ -24,6 +22,15 @@
             rel="noopener"
             title="Follow us on Twitter!"
             ><Twitter
+          /></a>
+        </li>
+        <li>
+          <a
+            href="https://medium.com/@pnkfrg  "
+            target="_blank"
+            rel="noopener"
+            title="Follow us on Medium"
+            ><Medium
           /></a>
         </li>
         <li>
@@ -39,8 +46,14 @@
 
       <ul class="links">
         <li>
-          <nuxt-link to="/privacy-policy" class="hover-me p0"
-            ><b>Privacy policy</b></nuxt-link
+          <nuxt-link to="/" class="hover-me p0"><b>Home</b></nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/about" class="hover-me p0"><b>About</b></nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/careers" class="hover-me p0"
+            ><b>Careers</b></nuxt-link
           >
         </li>
         <li>
@@ -49,8 +62,21 @@
           >
         </li>
         <li>
-          <nuxt-link to="/careers" class="hover-me p0"
-            ><b>Careers</b></nuxt-link
+          <nuxt-link to="/privacy-policy" class="hover-me p0"
+            ><b>Privacy policy</b></nuxt-link
+          >
+        </li>
+        <li>
+          <nuxt-link to="/terms" class="hover-me p0"><b>T&amp;Cs</b></nuxt-link>
+        </li>
+        <li>
+          <a
+            href="mailto:contact@pnkfrg.com"
+            target="_blank"
+            title="Contact us"
+            rel="noopener"
+            class="hover-me p0"
+            ><b>Contact</b></a
           >
         </li>
       </ul>
@@ -152,9 +178,9 @@ export default {
   }
 
   @media (max-width: 960px) {
-    flex-direction: column;
     padding-top: 68px;
     padding-bottom: 68px;
+    flex-direction: column;
 
     &-left {
       width: 100%;
@@ -179,12 +205,6 @@ export default {
           }
         }
       }
-    }
-  }
-
-  @media (min-width: 961px) {
-    .socials {
-      justify-content: flex-end;
     }
   }
 }

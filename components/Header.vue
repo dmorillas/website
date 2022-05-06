@@ -36,6 +36,13 @@
     </div>
 
     <nav>
+      <nuxt-link
+        to="/#experience"
+        title="Link to experience"
+        class="hover-me hide-m"
+        ><b @click="hashNav($event)">Experience</b></nuxt-link
+      >
+
       <nuxt-link to="/about" title="Link to about" class="hover-me"
         ><b>About</b></nuxt-link
       >
