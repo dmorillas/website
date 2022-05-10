@@ -10,7 +10,7 @@
       <p class="p0">
         Get early access to Beta
       </p>
-      <Form />
+      <contact-form />
     </div>
 
     <div class="footer-right">
