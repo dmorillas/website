@@ -12,17 +12,17 @@
     />
     <TitlesMobile :data="data.titles.fields" :titleSize="titleSize" v-else />
 
-    <div
-      :class="`texts-body ${textSize}`"
-      v-if="data.body"
-      v-html="$md.render(data.body)"
-    />
+    <div :class="`texts-body ${textSize}`">
+      <div v-if="data.body" v-html="$md.render(data.body)" />
+
+      <Form v-if="contact" :data-theme="data.headlineColor.toLowerCase()" />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['data', 'index'],
+  props: ['data', 'index', 'contact'],
 
   data () {
     let titleSize, textSize
@@ -60,6 +60,7 @@ export default {
 
 <style lang="scss">
 .texts {
+  position: relative;
   text-align: center;
 
   display: flex;

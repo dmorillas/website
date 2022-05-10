@@ -1,5 +1,5 @@
 <template>
-  <div :data-theme="theme">
+  <div :data-theme="theme" :data-slug="$route.params.slug || $route.name">
     <Header />
 
     <main class="main" :key="key">
@@ -14,18 +14,27 @@
           v-if="modName(mod) === 'section'"
           :data="mod.fields"
           :index="i"
+          :uuid="mod.sys.id"
+        />
+
+        <HomeLayout
+          v-if="modName(mod) === 'homeLayout'"
+          :data="mod.fields"
+          :index="i * 9897"
         />
 
         <Simple
-          v-else-if="modName(mod) === 'text'"
+          v-if="modName(mod) === 'text'"
           :data="mod.fields"
           :index="i"
+          :uuid="mod.sys.id"
         />
 
         <Jobs
           v-else-if="modName(mod) === 'jobs'"
           :data="mod.fields"
           :index="i"
+          :uuid="mod.sys.id"
         />
       </section>
     </main>
@@ -52,6 +61,7 @@ export default {
     anim.header()
 
     this.screenW = window.innerWidth
+
     window.addEventListener('resize', e => {
       this.checkResize(e)
     })
@@ -79,7 +89,8 @@ export default {
     },
 
     modName (mod, i) {
-      if (this.$route.name === 'index' && i === 0) {
+      const slug = this.$route.params.slug || null
+      if (i === 0 && slug != 'imprint') {
         return 'hero-index'
       } else {
         return mod.sys.contentType.sys.id
@@ -95,6 +106,7 @@ export default {
   --blue: #1126ea;
   --green: #4af3a1;
   --pink: #fecdff;
+  --pink-light: #f9f2fa;
   --red: #ff2750;
   --white: #f7f7f7;
   --yellow: #ffeb33;
@@ -122,6 +134,13 @@ body {
 
 main {
   overflow: hidden;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: 'gllx', Helvetica, Arial, sans-serif;
 }
 
 @keyframes body {
@@ -216,6 +235,9 @@ li {
 
 .cta,
 .texts-body strong > a {
+  appearance: none;
+  outline: none;
+  cursor: pointer;
   display: inline-block;
   padding: 14.5px 31.6px;
   font-size: 16px;
@@ -225,6 +247,7 @@ li {
   border-radius: 94px;
   text-decoration: none !important;
   transition: all 0.2s ease-out;
+  pointer-events: initial;
 
   &:hover {
     background: var(--pink);
@@ -321,6 +344,80 @@ li {
 
   @media (min-width: 961px) {
     font-size: 25px;
+  }
+}
+</style>
+
+<style lang="scss">
+.section-content {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 194px;
+  padding-bottom: 194px;
+
+  .jobs {
+    margin-bottom: calc(-194px + 104px);
+  }
+
+  .jobs {
+    @media (max-width: 960px) {
+      margin-bottom: calc(-194px + 66px);
+    }
+  }
+}
+
+section[data-type='hero-index'] {
+  > .section-content {
+    .shapes {
+      z-index: 1;
+    }
+  }
+
+  .section-content {
+    @media (max-width: 960px) {
+      /* padding-top: 80vh;
+      min-height: 100vh;
+      padding-bottom: 85px; */
+
+      padding-top: 120px;
+      max-height: -webkit-fill-available;
+      padding-bottom: 120px;
+    }
+
+    @media (min-width: 961px) {
+      padding-top: 220px;
+      padding-bottom: 220px;
+
+      .h1 {
+        line-height: 0.9;
+      }
+
+      .h2 {
+        line-height: 1.12;
+      }
+    }
+  }
+}
+
+section[data-type='text'] {
+  position: relative;
+
+  .shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    .shape-wrap {
+      left: 0;
+    }
+
+    svg {
+      height: auto;
+    }
   }
 }
 </style>

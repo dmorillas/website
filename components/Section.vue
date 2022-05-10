@@ -11,11 +11,11 @@
       }
     }"
   >
-    <Shapes v-if="data.shapes" :data="data.shapes" :index="index" />
+    <Shapes v-if="data.shapes" :data="data.shapes" :index="uuid" />
 
     <Videos v-if="data.videos" :data="data.videos" />
 
-    <Texts :data="data" :index="index" />
+    <Texts :data="data" :index="index" :contact="data.contactForm" />
 
     <Jobs v-if="data.jobs" :data="data.jobs" />
   </div>
@@ -29,7 +29,7 @@ import * as anim from '@/utils/animations'
 Vue.use(VueObserveVisibility)
 
 export default {
-  props: ['data', 'index'],
+  props: ['data', 'index', 'uuid'],
 
   data () {
     return {
@@ -68,71 +68,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.section-content {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 194px;
-  padding-bottom: 194px;
-
-  .jobs {
-    margin-bottom: calc(-194px + 104px);
-  }
-
-  .jobs {
-    @media (max-width: 960px) {
-      margin-bottom: calc(-194px + 66px);
-    }
-  }
-}
-
-section[data-type='hero-index'] {
-  .section-content {
-    @media (max-width: 960px) {
-      /* padding-top: 80vh;
-      min-height: 100vh;
-      padding-bottom: 85px; */
-
-      padding-top: calc(100vh - 240px);
-      max-height: -webkit-fill-available;
-      padding-bottom: 120px;
-    }
-
-    @media (min-width: 961px) {
-      padding-top: 302px;
-      padding-bottom: 250px;
-
-      .h1 {
-        line-height: 0.9;
-      }
-
-      .h2 {
-        line-height: 1.12;
-      }
-    }
-  }
-}
-
-section[data-type='text'] {
-  position: relative;
-
-  .shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-
-    .shape-wrap {
-      left: 0;
-    }
-
-    svg {
-      height: auto;
-    }
-  }
-}
-</style>

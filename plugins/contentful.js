@@ -11,7 +11,7 @@ module.exports = {
   },
 
   async getPage (slug, redirect) {
-    return contentful
+    return await contentful
       .createClient(config)
       .getEntries({
         content_type: 'page',
@@ -37,7 +37,7 @@ module.exports = {
           console.error('ERROR')
         }
 
-        return res.items.map(page => page.fields.slug)
+        return res.items.map(page => '/' + page.fields.slug)
       })
   }
 }

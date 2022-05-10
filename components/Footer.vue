@@ -8,18 +8,9 @@
       </h1>
 
       <p class="p0">
-        Interested in a career at pnkfrg studios? Send an email telling us a bit
-        about yourself and what you’re looking for to
-
-        <b
-          ><a
-            href="mailto:contact@pnkfrg.com"
-            title="Contact us"
-            class="hover-me"
-            >contact@pnkfrg.com</a
-          ></b
-        >
+        Get early access to Beta
       </p>
+      <Form />
     </div>
 
     <div class="footer-right">
@@ -35,43 +26,45 @@
         </li>
         <li>
           <a
-            href="https://www.facebook.com/pnkfrg-studios-101577392069651"
+            href="https://medium.com/@pnkfrg  "
             target="_blank"
             rel="noopener"
-            title="Follow us on Twitter!"
-            ><Facebook
+            title="Follow us on Medium"
+            ><Medium
           /></a>
         </li>
         <li>
           <a
-            href="https://instagram.com/pnkfrg"
+            href="https://discord.gg/ShE5QAGvCc"
             target="_blank"
             rel="noopener"
-            title="Follow us on Instagram!"
-            ><Instagram />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/company/pnkfrg"
-            target="_blank"
-            rel="noopener"
-            title="Follow us on Linkedin!"
-            ><Linkedin
+            title="Chat with us on Discord!"
+            ><Discord
           /></a>
         </li>
       </ul>
 
       <ul class="links">
         <li>
-          <nuxt-link to="/imprint" class="hover-me p0"
-            ><b>Imprint</b></nuxt-link
-          >
+          <nuxt-link to="/about" class="hover-me p0"><b>About</b></nuxt-link>
         </li>
         <li>
           <nuxt-link to="/careers" class="hover-me p0"
             ><b>Careers</b></nuxt-link
           >
+        </li>
+        <li>
+          <nuxt-link to="/imprint" class="hover-me p0"
+            ><b>Imprint</b></nuxt-link
+          >
+        </li>
+        <li>
+          <nuxt-link to="/privacy-policy" class="hover-me p0"
+            ><b>Privacy policy</b></nuxt-link
+          >
+        </li>
+        <li>
+          <nuxt-link to="/terms" class="hover-me p0"><b>T&amp;Cs</b></nuxt-link>
         </li>
         <li>
           <a
@@ -94,9 +87,11 @@ import Instagram from '@/assets/svgs/Instagram'
 import Linkedin from '@/assets/svgs/Linkedin'
 import Logo from '@/assets/svgs/LogoLine'
 import Twitter from '@/assets/svgs/Twitter'
+import Discord from '@/assets/svgs/Discord'
+import Medium from '@/assets/svgs/Medium'
 
 export default {
-  components: { Facebook, Instagram, Linkedin, Logo, Twitter }
+  components: { Facebook, Instagram, Linkedin, Logo, Twitter, Discord, Medium }
 }
 </script>
 
@@ -108,8 +103,11 @@ export default {
   padding-bottom: 80px;
   position: relative;
   z-index: 666;
+  background: var(--blue);
 
   &-left {
+    width: 60%;
+
     p {
       margin-top: 20px;
       max-width: 505px;
@@ -123,6 +121,14 @@ export default {
 
       li:not(:last-child) {
         margin-bottom: 3px;
+      }
+    }
+  }
+
+  .form-wrap {
+    input {
+      &:focus {
+        border-color: var(--white) !important;
       }
     }
   }
@@ -144,7 +150,7 @@ export default {
         svg {
           width: 38px;
           height: 38px;
-          background: white;
+          background: transparent;
           border-radius: 100%;
           transition: 0.2s all cubic-bezier(0.165, 0.84, 0.44, 1);
 
@@ -174,6 +180,7 @@ export default {
     flex-direction: column;
 
     &-left {
+      width: 100%;
       p {
         margin-top: 12px;
       }
