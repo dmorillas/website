@@ -6,10 +6,10 @@
         ref="form"
         name="Early Access"
         data-netlify="true"
+        netlify-honeypot="bot-field"
         @submit="handleSubmit($event)"
       >
-        <!-- netlify-honeypot="bot-field" -->
-        <!-- <input type="hidden" name="bot-field" /> -->
+        <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="Early Access" />
 
         <div class="form-row">
