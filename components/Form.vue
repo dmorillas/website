@@ -6,17 +6,28 @@
         ref="form"
         name="Early Access"
         data-netlify="true"
-        @submit="handleSubmit($event)"
+        netlify-honeypot="bot-field"
       >
-        <!-- netlify-honeypot="bot-field" -->
-        <!-- <input type="hidden" name="bot-field" /> -->
+        <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="Early Access" />
 
         <div class="form-row">
-          <input type="email" name="email" placeholder="Email*" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email*"
+            required
+            v-model="email"
+          />
         </div>
         <div>
-          <button type="submit" class="cta cta-sumbit">{{ sendBtn }}</button>
+          <button
+            type="submit"
+            class="cta cta-sumbit"
+            @click="handleSubmit($event)"
+          >
+            {{ sendBtn }}
+          </button>
         </div>
       </form>
     </div>
@@ -31,6 +42,7 @@
 export default {
   data () {
     return {
+      email: null,
       sendBtn: 'get early access',
       sent: null
     }
@@ -45,31 +57,33 @@ export default {
     },
 
     handleSubmit (e) {
-      e.preventDefault()
-
       const app = this
       const myForm = app.$refs.form
       const formData = new FormData(myForm)
 
-      app.sendBtn = '...sending'
+      if (this.email !== null) {
+        e.preventDefault()
 
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      })
-        .then(res => {
-          if (res.status === 200) {
-            app.sent = true
-            setTimeout(() => {
-              app.showFeed()
-            }, 500)
-          }
+        app.sendBtn = '...sending'
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
         })
-        .catch(error => {
-          app.sendBtn = 'Error!'
-          console.error('Error:', error)
-        })
+          .then(res => {
+            if (res.status === 200) {
+              app.sent = true
+              setTimeout(() => {
+                app.showFeed()
+              }, 500)
+            }
+          })
+          .catch(error => {
+            app.sendBtn = 'Error!'
+            console.error('Error:', error)
+          })
+      }
     },
 
     showFeed () {
