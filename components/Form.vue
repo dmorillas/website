@@ -56,7 +56,7 @@ export default {
         select.classList.remove('disabled')
     },
 
-    handleSubmit (e) {
+    async handleSubmit (e) {
       const app = this
       const myForm = app.$refs.form
       const formData = new FormData(myForm)
@@ -66,7 +66,7 @@ export default {
 
         app.sendBtn = '...sending'
 
-        fetch('/', {
+        await fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams(formData).toString()
