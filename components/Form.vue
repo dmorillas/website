@@ -7,6 +7,7 @@
         name="Early Access"
         data-netlify="true"
         netlify-honeypot="bot-field"
+        @submit.prevent="handleSubmit"
       >
         <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="Early Access" />
@@ -21,11 +22,7 @@
           />
         </div>
         <div>
-          <button
-            type="submit"
-            class="cta cta-sumbit"
-            @click="handleSubmit($event)"
-          >
+          <button type="submit" class="cta cta-sumbit">
             {{ sendBtn }}
           </button>
         </div>
@@ -56,34 +53,32 @@ export default {
         select.classList.remove('disabled')
     },
 
-    async handleSubmit (e) {
+    handleSubmit (e) {
       const app = this
       const myForm = app.$refs.form
       const formData = new FormData(myForm)
 
-      if (this.email !== null) {
-        e.preventDefault()
+      // if (this.email !== null) {
+      app.sendBtn = '...sending'
 
-        app.sendBtn = '...sending'
-
-        await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formData).toString()
+      fetch('https://pnkfrg.com/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+        .then(res => {
+          if (res.status === 200) {
+            app.sent = true
+            setTimeout(() => {
+              app.showFeed()
+            }, 500)
+          }
         })
-          .then(res => {
-            if (res.status === 200) {
-              app.sent = true
-              setTimeout(() => {
-                app.showFeed()
-              }, 500)
-            }
-          })
-          .catch(error => {
-            app.sendBtn = 'Error!'
-            console.error('Error:', error)
-          })
-      }
+        .catch(error => {
+          app.sendBtn = 'Error!'
+          console.error('Error:', error)
+        })
+      // }
     },
 
     showFeed () {
