@@ -1,16 +1,16 @@
 <template>
-  <div id="form">
+  <div class="form-parent">
     <div class="form-wrap" ref="wrap">
       <form
         method="POST"
         ref="form"
-        name="Early Access"
+        :name="`form-${uuid}`"
         data-netlify="true"
         netlify-honeypot="bot-field"
         @submit.prevent="handleSubmit"
       >
         <input type="hidden" name="bot-field" />
-        <input type="hidden" name="form-name" value="Early Access" />
+        <input type="hidden" name="form-name" :value="`form-${uuid}`" />
 
         <div class="form-row">
           <input
@@ -37,6 +37,8 @@
 
 <script>
 export default {
+  props: ['uuid'],
+
   data () {
     return {
       email: null,
@@ -53,15 +55,14 @@ export default {
         select.classList.remove('disabled')
     },
 
-    handleSubmit (e) {
+    handleSubmit () {
       const app = this
       const myForm = app.$refs.form
       const formData = new FormData(myForm)
 
-      // if (this.email !== null) {
       app.sendBtn = '...sending'
 
-      fetch('https://pnkfrg.com/', {
+      fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString()
@@ -78,7 +79,6 @@ export default {
           app.sendBtn = 'Error!'
           console.error('Error:', error)
         })
-      // }
     },
 
     showFeed () {
@@ -93,7 +93,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#form {
+.form-parent {
   margin-top: 12px;
 }
 

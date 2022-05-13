@@ -10,7 +10,7 @@
       <p class="p0">
         Get early access to Beta
       </p>
-      <Form />
+      <Form uuid="footer" />
     </div>
 
     <div class="footer-right">
